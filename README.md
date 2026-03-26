@@ -80,6 +80,24 @@ make
 
 If this compiles without errors, your environment is ready.
 
+### 7. GitHub Actions Smoke Check
+
+Your fork will inherit a minimal GitHub Actions workflow from this repository.
+
+That workflow only performs CI-safe checks:
+
+- `make -C boilerplate ci`
+- user-space binary compilation (`engine`, `memory_hog`, `cpu_hog`, `io_pulse`)
+- `./boilerplate/engine` with no arguments must print usage and exit with a non-zero status
+
+The CI-safe build command is:
+
+```bash
+make -C boilerplate ci
+```
+
+This smoke check does not test kernel-module loading, supervisor runtime behavior, or container execution.
+
 ---
 
 ## What to Do Next
